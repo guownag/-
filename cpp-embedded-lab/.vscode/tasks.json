@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      // 默认构建任务（Ctrl+Shift+B 直接跑这个）：全量构建 + 全部测试
+      "label": "构建 + 测试",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy", "Bypass",
+        "-File", "${workspaceFolder}/tools/build.ps1"
+      ],
+      "group": { "kind": "build", "isDefault": true },
+      "problemMatcher": ["$msCompile"],
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true }
+    },
+    {
+      // 只构建并测试某一课。运行后会弹框让你输入课号，比如 01
+      "label": "构建 + 测试（指定课）",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy", "Bypass",
+        "-File", "${workspaceFolder}/tools/build.ps1",
+        "-Lesson", "${input:lessonNumber}"
+      ],
+      "group": "build",
+      "problemMatcher": ["$msCompile"],
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true }
+    },
+    {
+      // 第 00 课专用：不用 CMake，手工走一遍编译四步
+      "label": "第 00 课：手工编译流程",
+      "type": "shell",
+      "command": "powershell",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy", "Bypass",
+        "-File", "${workspaceFolder}/tools/raw-build.ps1"
+      ],
+      "problemMatcher": ["$msCompile"],
+      "presentation": { "reveal": "always", "panel": "shared", "clear": true }
+    }
+  ],
+  "inputs": [
+    {
+      "id": "lessonNumber",
+      "type": "promptString",
+      "description": "要构建哪一课？（填两位数，例如 01）",
+      "default": "01"
+    }
+  ]
+}

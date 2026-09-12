@@ -1,0 +1,12 @@
+build/
+build-*/
+.vs/
+*.user
+*.i
+*.asm
+*.obj
+*.exe
+*.pdb
+*.ilk
+compile_commands.json
+

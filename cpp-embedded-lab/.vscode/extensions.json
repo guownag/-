@@ -1,0 +1,7 @@
+{
+  // 打开这个工程时，VS Code 会提示你安装这两个扩展。
+  // 装了 C/C++ 才有语法高亮、跳转定义、错误波浪线。
+  "recommendations": [
+    "ms-vscode.cpptools"
+  ]
+}

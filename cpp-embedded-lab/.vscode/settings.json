@@ -1,0 +1,22 @@
+{
+  // 源码统一用 UTF-8（不带 BOM），和 MSVC 的 /utf-8 编译选项保持一致。
+  "files.encoding": "utf8",
+  "files.eol": "\r\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  // 头文件按 C++ 高亮，而不是 C。
+  "files.associations": {
+    "*.h": "cpp",
+    "*.hpp": "cpp"
+  },
+
+  // 用 CMake 生成的 compile_commands.json 给智能提示提供准确的
+  // 头文件搜索路径和编译选项。构建过一次之后就会生效。
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/build/debug/compile_commands.json",
+  "C_Cpp.default.cppStandard": "c++17",
+
+  // 关掉一些容易干扰阅读的提示。
+  "editor.rulers": [100],
+  "cmake.configureOnOpen": false
+}
